@@ -8,5 +8,7 @@ WORKDIR /app
 
 ENTRYPOINT ["python"]
 
+EXPOSE 5000
+
 # The script to start on startup
 CMD ["app.py"]
