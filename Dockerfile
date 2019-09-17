@@ -1,5 +1,7 @@
 FROM python:3.7-alpine
 
+# Create project directory (workdir)
+RUN mkdir /app
 WORKDIR /app
 
 # Add requirements.txt to WORKDIR and install dependencies
