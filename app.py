@@ -16,8 +16,8 @@ def hello_world():
 					<ol>
 						<li>Press CTRL+C or ENTER to terminate <code>devspace open</code></li>
 						<li>Run: <code>devspace dev</code></li>
-						<li>Edit this text in <code>main.go</code> and save the file</li>
-						<li>Check the logs to see how <code>CompileDaemon</code> recompiles and restarts this project</li>
+						<li>Edit this text in <code>app.py</code> and save the file</li>
+						<li>Check the logs to see how <code>flask</code> recompiles and restarts this project</li>
 						<li>Reload browser to see the changes</li>
 					</ol>
 				</div>

@@ -1,14 +1,18 @@
 FROM python:3.7-alpine
 
-COPY requirements.txt /
-RUN pip install -r /requirements.txt
-
-COPY . /app
 WORKDIR /app
 
-ENTRYPOINT ["python"]
+# Add requirements.txt to WORKDIR and install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Add the remaining source code files to WORKDIR
+COPY . .
 
 EXPOSE 5000
 
-# The script to start on startup
-CMD ["app.py"]
+# Set this environment variable to enable hot reloading for flask
+ENV FLASK_DEBUG=1
+
+# Start flask for hot reloading (will watch for file changes and then rebuild & restart the application)
+ENTRYPOINT ["python", "-m", "flask", "run"]
