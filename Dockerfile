@@ -17,4 +17,4 @@ EXPOSE 5000
 ENV FLASK_DEBUG=1
 
 # Start flask for hot reloading (will watch for file changes and then rebuild & restart the application)
-ENTRYPOINT ["python", "-m", "flask", "run"]
+ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
