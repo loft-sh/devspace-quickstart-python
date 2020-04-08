@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.8-slim-buster
 
 # Create project directory (workdir)
 RUN mkdir /app
@@ -8,13 +8,12 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# Add the remaining source code files to WORKDIR
-COPY . .
+# Add source code files to WORKDIR
+ADD . .
 
-EXPOSE 5000
+# Application port (optional)
+EXPOSE 8080
 
-# Set this environment variable to enable hot reloading for flask
-ENV FLASK_DEBUG=1
-
-# Start flask for hot reloading (will watch for file changes and then rebuild & restart the application)
-ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+# Container start command
+# It is also possible to override this in devspace.yaml via images.*.cmd
+CMD ["python", "main.py"]
