@@ -1,7 +1,6 @@
 FROM python:3.8-slim-buster
 
 # Create project directory (workdir)
-RUN mkdir /app
 WORKDIR /app
 
 # Add requirements.txt to WORKDIR and install dependencies
